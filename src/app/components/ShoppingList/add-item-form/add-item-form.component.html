@@ -1,0 +1,84 @@
+<div class="row">
+  <div class="col-xl-12">
+    <div class="card">
+      <div class="card-title">
+            <h3>Add a new Item to {{list.name}}
+                <button 
+                  class="btn btn-primary float-right" 
+                  (click)="newItem.ngSubmit.emit()" 
+                  [disabled]="nameText.invalid || descriptionText.invalid || quantityText.invalid " >
+                    Add to {{list.name}}
+                  </button>
+            </h3>
+      </div>
+      <div class="card-content">
+        <form #newItem="ngForm" (ngSubmit)="addItem(newItem, index)">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group mb-3">
+                <label for="nameText" class="text-muted control-label">Name</label>
+                <input 
+                  class="form-control"
+                  [ngClass]="{'error': (nameText.invalid && nameText.value !== '')}"
+                  required
+                  #nameText="ngModel"
+                  pattern="[\w\s]+"
+                  name="name" 
+                  autocomplete="off" 
+                  [(ngModel)]="name">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group mb-3">
+                <label for="quantityText" class="text-muted control-label">Quantity</label>
+                <input 
+                  class="form-control"
+                  [ngClass]="{'error': quantityText.invalid && quantityText.value !== ''}"
+                  required
+                  #quantityText="ngModel"
+                  pattern="\d+"
+                  name="quantity" 
+                  autocomplete="off" 
+                  [(ngModel)]="quantity">
+              </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group mb-3">
+                  <label for="pQuantityText" class="text-muted control-label">Preferred Quantity</label>
+                  <input 
+                    class="form-control"
+                    [ngClass]="{'error': pQuantityText.invalid && pQuantityText.value !== ''}"
+                    required
+                    #pQuantityText="ngModel"
+                    pattern="\d+"
+                    name="pQuantity" 
+                    autocomplete="off" 
+                    [(ngModel)]="preferredQuantity">
+                </div>
+              </div>
+            <div class="col-md-5">
+              <div class="informput-group mb-3">
+                <label for="descriptionText" class="text-muted control-label">Description</label>
+                <textarea 
+                    class="form-control"
+                    #descriptionText="ngModel"
+                    name="description" 
+                    autocomplete="off" 
+                    [(ngModel)]="description">
+                  </textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row" *ngIf="showHelp">
+            <div class="col-md-12">
+              <p><strong>Name: </strong>What you will recognize this item as in your home or store</p>
+              <p><strong>Quantity: </strong>How many of this item you currently posses</p>
+              <p><strong>Preferred Quantity: </strong>How many of this item you would like to have on hand at any time</p>
+              <p><strong>Description: </strong>Any additional information about this item (i.e. brand or type)</p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="container" *ngIf="lists?.lists?.length === 0">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="card card-jumbo" [routerLink]="['/id/manageLists']">
+        <div class="card-title text-center">
+          <h2>
+              Create a List to Get Started!
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container" *ngFor="let list of lists.lists; let i = index">
+  <div class="row">
+    <div class="col-xl-10">
+      <h2>
+        <span>
+          {{list.name}}
+        </span>
+        &nbsp;
+        <button class="btn" (click)="openForm(i)" *ngIf="this.formOpen !== i">
+          Add an item!
+        </button>
+        <button class="btn" (click)="closeForm()" *ngIf="this.formOpen === i">
+          Nevermind...
+        </button>
+      </h2>
+    </div>
+  </div>
+  <app-add-item-form [list]="list" *ngIf="formOpen === i"></app-add-item-form>
+  <div class="row">
+    <div class="col-xl-4" *ngFor="let item of list.items">
+      <app-item [item]="item"></app-item>
+    </div>
+  </div>
+</div>

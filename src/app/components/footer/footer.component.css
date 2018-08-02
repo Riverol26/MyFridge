@@ -1,0 +1,10 @@
+.footer {
+    min-height: 160px;
+    background-color: grey;
+    color: #EEEEEE;
+    padding: 2%;
+}
+
+.center {
+    justify-content: center;
+}

@@ -1,0 +1,31 @@
+<div class="card container" 
+  [ngClass]="{'card-completed' : item.done === true, 'item-needed' : (item.quantity - item.preferredQuantity) < 0}">
+  <div class="card-content">
+    <div class="row">
+      <div class="col-md-7">
+        <h4>{{item?.name}}</h4>
+      </div>
+      <div class="col-md-5">
+        <div class="input-group mb-3">
+          <input 
+            class="form-control" 
+            required 
+            pattern="[\d]+"
+            #quantity="ngModel"
+            name="quantity" 
+            min="0"
+            autocomplete="off" 
+            [(ngModel)]="item.quantity">
+          <div class="input-group-append">
+            <span class="input-group-text">/{{item.preferredQuantity}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-12 text-muted">
+        <p>{{item?.description}}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+.page {
+    background-color: #EEEEEE;
+    min-height: 760px;
+}
+
+.pad-top {
+    padding-top: 100px;
+}
+
+.card:hover {
+    cursor: pointer;
+}

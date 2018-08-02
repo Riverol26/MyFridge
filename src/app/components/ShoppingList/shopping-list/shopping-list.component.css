@@ -1,0 +1,12 @@
+.container {
+    padding-top: 2%
+}
+
+.card { 
+    padding: 10px;
+}
+
+.card-jumbo {
+    margin-top: 200px;
+    padding: 50px;
+}

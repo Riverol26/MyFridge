@@ -1,0 +1,10 @@
+.header-bar {
+    background-color: black;
+    height: 15%;
+    color: lightgray;
+    padding: 1% 2%;
+}
+
+.navbar-brand {
+    color: #eeeeee;
+}

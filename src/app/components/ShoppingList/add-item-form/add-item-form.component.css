@@ -1,0 +1,18 @@
+.card { 
+    padding: 10px;
+}
+
+.error {
+    border-color: red;
+    background-color: #ffcccc
+}
+
+p {
+    margin-bottom: 0;
+}
+
+textarea {
+    height: 38px;
+    max-height: 120px;
+    min-height: 38px;
+}
